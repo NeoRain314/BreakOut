@@ -14,6 +14,9 @@ public class Ball extends Actor
     private int dy = -2;//Greenfoot.getRandomNumber(2) - 3;
     private int width = this.getImage().getWidth();
     
+    public Ball(int type){
+    }
+    
     /**
      * Act - tut, was auch immer Ball tun will. Diese Methode wird aufgerufen, 
      * sobald der 'Act' oder 'Run' Button in der Umgebung angeklickt werden. 
@@ -66,6 +69,11 @@ public class Ball extends Actor
                 block.type = 1;
                 ((Spielfeld) getWorld()).balls++;
             }else
+            if(block.type == 5){
+                Ball ball = new Ball(0);
+                getWorld().addObject(ball, Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(300));
+                getWorld().removeObject(block);
+            }
             if(block.type > 1){
                 block.type--;
             }else getWorld().removeObject(block);

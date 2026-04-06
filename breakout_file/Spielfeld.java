@@ -15,7 +15,7 @@ public class Spielfeld extends World
      */
     
     //LEVELS: (0:nothing; 1:norm.block; 2:doubleHit.block)
-    private int[] test_level = {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 3, 4, 2, 1,
+    private int[] test_level = {0, 1, 2, 3, 4, 5, 0, 1, 1, 0, 0, 0, 0, 5, 0, 0,
                                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}; 
     private int[] Level_1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
@@ -50,15 +50,16 @@ public class Spielfeld extends World
     public int game_height = getHeight();
     public int balls = 3;
     public int score = 0;
-    public int game_stat = 0; //0-> is running, 1-> lost, 2->won
-    
+    public int game_stat = 0; //0-> is running, 1-> lost, 2->won  
     private boolean key_down = false; 
+    
+    public Paddle paddle;
     
     
     public void act() {
         if(game_stat==0 && Greenfoot.isKeyDown("space") && getObjects(Ball.class).size() == 0) {
-            Ball ball = new Ball();
-            addObject(ball, 320, 240);
+            Ball ball = new Ball(0);
+            addObject(ball, paddle.getX(), paddle.getY()-20);
         }
         if(game_stat > 0){
             //removeObjects(getObjects(Actor.class));
@@ -90,7 +91,7 @@ public class Spielfeld extends World
         Block block = new Block();
         addObject(block, 100,50);*/
         
-        Paddle paddle = new Paddle();
+        paddle = new Paddle();
         addObject(paddle, 300, 320);
     }
     

@@ -1,15 +1,17 @@
 #BlueJ class context
 comment0.target=Ball
 comment0.text=\r\n\ Ball\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @29.01.2026\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ tut,\ was\ auch\ immer\ Ball\ tun\ will.\ Diese\ Methode\ wird\ aufgerufen,\ \r\n\ sobald\ der\ 'Act'\ oder\ 'Run'\ Button\ in\ der\ Umgebung\ angeklickt\ werden.\ \r\n
+comment1.params=type
+comment1.target=Ball(int)
 comment2.params=
-comment2.target=void\ reflectOnPaddle()
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ tut,\ was\ auch\ immer\ Ball\ tun\ will.\ Diese\ Methode\ wird\ aufgerufen,\ \r\n\ sobald\ der\ 'Act'\ oder\ 'Run'\ Button\ in\ der\ Umgebung\ angeklickt\ werden.\ \r\n
 comment3.params=
-comment3.target=void\ reflectOnBlock()
+comment3.target=void\ reflectOnPaddle()
 comment4.params=
-comment4.target=void\ reflectOnWall()
+comment4.target=void\ reflectOnBlock()
 comment5.params=
-comment5.target=void\ removeOnWall()
-numComments=6
+comment5.target=void\ reflectOnWall()
+comment6.params=
+comment6.target=void\ removeOnWall()
+numComments=7
