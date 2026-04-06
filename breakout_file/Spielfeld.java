@@ -18,7 +18,7 @@ public class Spielfeld extends World
     private int[] test_level = {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 3, 4, 2, 1,
                                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}; 
-    private int[] Level_1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    private int[] Level_1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}; 
     private int[] Level_2 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -102,7 +102,7 @@ public class Spielfeld extends World
         //Blocks:
         int maxBlocks = 48;
         int currBlocks = getObjects(Block.class).size();
-        showText("Blocks:" + currBlocks + "/" + maxBlocks, 70, 200);
+        //showText("Blocks:" + currBlocks + "/" + maxBlocks, 70, 200);
         
         //Balls:
         showText("Balls left:" + balls, 440, 380);
@@ -111,11 +111,12 @@ public class Spielfeld extends World
         showText("Score:" + score, 70, 380);
         
         //Level:
-        showText("Level:" + "1", game_width-50, 380);
+        showText("Level:" + level_num, game_width-50, 380);
         
         if(currBlocks == 0 && game_stat == 0){
             showText("YOU WON!", game_width/2, game_height/2-50);
             showText(":)", game_width/2, game_height/2-30);
+            showText("You unlocked the next level!", game_width/2, game_height/2);
             showText("- press space to continue -", game_width/2, game_height-65);
             game_stat = 2;
             stopGame();
@@ -123,6 +124,7 @@ public class Spielfeld extends World
         if(balls == 0 && game_stat == 0){
             showText("YOU LOST!", game_width/2, game_height/2-50);
             showText(":(", game_width/2, game_height/2-30);
+            showText("ty again", game_width/2, game_height/2);
             showText("- press space to continue -", game_width/2, game_height-65);
             game_stat = 1;
             stopGame();

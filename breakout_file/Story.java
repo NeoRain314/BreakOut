@@ -20,8 +20,9 @@ public class Story extends World
     }
     
     public void act(){
-        if(Greenfoot.isKeyDown("space")){
-            Greenfoot.setWorld(new Menu());
-        }
+        Greenfoot.setWorld(new Menu(0));
+        /*if(Greenfoot.isKeyDown("space")){
+            Greenfoot.setWorld(new Menu(0));
+        }*/
     }
 }
