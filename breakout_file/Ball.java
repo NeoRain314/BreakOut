@@ -72,6 +72,7 @@ public class Ball extends Actor
             if(block.type == 5){
                 Ball ball = new Ball(0);
                 getWorld().addObject(ball, Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(300));
+                ((Spielfeld) getWorld()).balls++;
                 getWorld().removeObject(block);
             }
             if(block.type > 1){
