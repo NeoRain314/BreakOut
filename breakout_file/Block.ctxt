@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Block
+comment0.text=\r\n\ Block\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @29.01.2026\r\n
+comment1.params=spawn_type
+comment1.target=Block(int)
+comment2.params=
+comment2.target=void\ act()
+numComments=3

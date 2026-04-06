@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Spielfeld
+comment0.text=\r\n\ Spielfeld\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @29.01.2026\r\n
+comment1.params=level
+comment1.target=Spielfeld(int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ fillGame()
+comment4.params=
+comment4.target=void\ test()
+comment5.params=
+comment5.target=void\ updateText()
+comment6.params=
+comment6.target=void\ stopGame()
+numComments=7
