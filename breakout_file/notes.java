@@ -8,6 +8,9 @@
  * - Balls left anzeige anders
  * 
  * 
+ *- BUG: Level unlock, when second level beated it is unlocked again
+ * 
+ * 
  * Ideas:
  * - Hight score
  * 

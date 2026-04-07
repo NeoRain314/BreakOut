@@ -28,7 +28,7 @@ public class Story extends World
         
        if(Greenfoot.isKeyDown("space")) key_down = true; //damit erst nach loslassen, sonst in menü gleich wieder space gedrückt --> startet neues game
         if(key_down && !Greenfoot.isKeyDown("space")){
-            if(stat<3){
+            if(stat<6){
                 stat++;
                 showText("", 110, 375);
                 showText("Press space to continue!", 120, 385);
