@@ -14,10 +14,10 @@ public class Spielfeld extends World
      * 
      */
     
-    //LEVELS: (0:nothing; 1:norm.block; 2:doubleHit.block)
-    private int[] test_level = {0, 1, 2, 3, 4, 5, 0, 1, 1, 0, 0, 0, 0, 5, 0, 0,
-                                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,}; 
+    //LEVELS: (0:nothing; 1:norm; 2:doubleHit; 3:threehit, 4:star, 5:ballspawn)
+    private int[] test_level = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                                0, 1, 5, 1, 0, 1, 1, 4, 4, 1, 1, 0, 1, 5, 1, 0,
+                                0, 0, 1, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0, 1, 0, 0,}; 
     private int[] Level_1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}; 

@@ -2,6 +2,10 @@
  * Todo:
  * - !!CODE FÜR WARTEN NACH KLICKEN IN MENÜ ANDERS MACHEN!!! 
  * - Sounds and Music
+ * - Story
+ * - neue Graphics
+ * - Ball Paddle Reflektion besser
+ * - Balls left anzeige anders
  * 
  * 
  * Ideas:
