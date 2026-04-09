@@ -10,8 +10,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
 public class Ball extends Actor
 {
     
-    private int dx = 2;//2 - Greenfoot.getRandomNumber(3);
-    private int dy = -2;//Greenfoot.getRandomNumber(2) - 3;
+    private double dx = 2;//2 - Greenfoot.getRandomNumber(3);
+    private double dy = -2;//Greenfoot.getRandomNumber(2) - 3;
+    private double speed = 3;
     private int width = this.getImage().getWidth();
     
     public Ball(int type){
@@ -23,7 +24,7 @@ public class Ball extends Actor
      */
     public void act() 
     {
-        setLocation(getX() + dx, getY() + dy);
+        setLocation((int) (getX() + Math.round(dx)), (int) (getY() + Math.round(dy)));
         reflectOnPaddle();
         reflectOnBlock();
         reflectOnWall();
@@ -37,13 +38,25 @@ public class Ball extends Actor
             int paddleRight = paddle.getX() + paddle.getImage().getWidth()/2 -5;
             if(getX() < paddleLeft) {
                 dx = -dx;
-                setLocation(getX()-3, getY());
+                setLocation(getX()-1, getY());
             }else if(getX() > paddleRight){
                 dx = -dx;
-                setLocation(getX()+3, getY());
+                setLocation(getX()+1, getY());
+            }
+            double a = paddle.getX()-getX();
+            if(dx<0){
+                dx = -1 - Math.sqrt(a*a)/10;
+            }else{
+                dx = 1 + Math.sqrt(a*a)/10;
             }
             
-            dy = -dy;
+            if(dx > speed-1) dx = speed-1;
+            if(dx < -speed+1) dx = -speed+1;
+            
+            double b = Math.pow(speed, 2) - Math.pow(dx, 2);
+            dy = -Math.sqrt(b);
+            
+            //dy = -dy;
         }
     }
     

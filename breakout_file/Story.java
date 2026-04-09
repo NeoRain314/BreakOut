@@ -15,7 +15,7 @@ public class Story extends World
      */
     
     private boolean key_down = false;
-    private int stat = 0;
+    private int stat = 6;
     
     public Story()
     {    
