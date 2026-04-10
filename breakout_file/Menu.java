@@ -34,7 +34,15 @@ public class Menu extends World
         showText("Level:", 300, 185);
         showText("<               >", 300, 211);
         
-        if(unlock>0 && unlock<2) LevelLocks[unlock+1] = 1;
+        if(unlock>0 && unlock<maxLevel){            //....................................................... vieleicht noch schöner schreiben .....//
+            for(int i = 0; i<=(unlock+1); i++){
+                 LevelLocks[i] = 1;
+            }
+        }else{
+            for(int i = 0; i<=(unlock); i++){
+                 LevelLocks[i] = 1;
+            }
+        }
     }
     
     public void act(){
