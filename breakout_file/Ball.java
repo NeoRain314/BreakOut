@@ -36,10 +36,10 @@ public class Ball extends Actor
         if(paddle != null){
             int paddleLeft = paddle.getX() - paddle.getImage().getWidth()/2 + 5;
             int paddleRight = paddle.getX() + paddle.getImage().getWidth()/2 -5;
-            if(getX() < paddleLeft) {
+            if(getX() < paddleLeft && dx>0) {
                 dx = -dx;
                 setLocation(getX()-1, getY());
-            }else if(getX() > paddleRight){
+            }else if(getX() > paddleRight && dx<0){
                 dx = -dx;
                 setLocation(getX()+1, getY());
             }
