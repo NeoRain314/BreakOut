@@ -15,12 +15,14 @@ public class Menu extends World
      */
     
     public int level = 0;
-    private int maxLevel = 2;
+    private int maxLevel;
     //Levels: test_level, Level_1, Level_2
     private int[] LevelLocks = { //0=locked, 1=unlocked
         1,
         1,
-        0
+        1,
+        1,
+        1
     };
     
     public Menu(int unlock)
@@ -34,6 +36,7 @@ public class Menu extends World
         showText("Level:", 300, 185);
         showText("<               >", 300, 211);
         
+        maxLevel = LevelLocks.length - 1;
         if(unlock>0 && unlock<maxLevel){            //....................................................... vieleicht noch schöner schreiben .....//
             for(int i = 0; i<=(unlock+1); i++){
                  LevelLocks[i] = 1;

@@ -94,7 +94,7 @@ public class Ball extends Actor
                 ((Spielfeld) getWorld()).balls++;*/
                 type = 1;
                 this.setImage("ball_star.png");
-                ((Spielfeld)getWorld()).timer_time = 10*60;
+                ((Spielfeld)getWorld()).timer_time += 10*60;
                 getWorld().removeObject(block);
             }else
             if(block.type == 5){
