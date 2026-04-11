@@ -6,14 +6,17 @@
  * 
  * //TODO//--------------------------
  * - !!CODE FÜR WARTEN NACH KLICKEN IN MENÜ ANDERS MACHEN!!! 
- * - Sounds and Music
- * - Story
+ * - better sounds & lautstärke anpassen...
+ * - Music
+ * - Story fertig
+ * - Tutorial besser
  * - Balls left anzeige anders
  * - in Menü taste drücken können damit alle Level unlocked werden
  * 
  * done:
  * - neue Graphics
  * - Ball Paddle Reflektion besser
+ * - Sounds and 
  * 
  * //BUGs//-------------------------
  * - level 2 done --> unlock level three; but when level one again done level three again locked
