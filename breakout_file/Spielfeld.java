@@ -73,6 +73,7 @@ public class Spielfeld extends World
     public int score = 0;
     public int game_stat = 0; //0-> is running, 1-> lost, 2->won  
     private boolean key_down = false; 
+    private int sound_delay = 0;
     
     public Paddle paddle;
     
@@ -98,6 +99,8 @@ public class Spielfeld extends World
         }else{
             show_timer = false;
         }
+        
+        if(sound_delay > 0) sound_delay--;
         
         updateText();
         
@@ -146,6 +149,7 @@ public class Spielfeld extends World
         showText("Level:" + level_num, game_width-50, 380);
         
         if(currBlocks == 0 && game_stat == 0){
+            sound("win.wav");
             showText("YOU WON!", game_width/2, game_height/2-50);
             showText(":)", game_width/2, game_height/2-30);
             showText("You unlocked the next level!", game_width/2, game_height/2);
@@ -154,6 +158,7 @@ public class Spielfeld extends World
             stopGame();
         }
         if(balls == 0 && game_stat == 0){
+            sound("loose.wav");
             showText("YOU LOST!", game_width/2, game_height/2-50);
             showText(":(", game_width/2, game_height/2-30);
             showText("ty again", game_width/2, game_height/2);
@@ -175,5 +180,12 @@ public class Spielfeld extends World
         showText("", game_width/2, 340);
         /*showText("", 80, 280);
         showText("", 68, 250);*/
+    }
+    
+    private void sound(String sound_name){
+        if(sound_delay == 0){
+            Greenfoot.playSound(sound_name);
+            sound_delay = 2;
+        }
     }
 }

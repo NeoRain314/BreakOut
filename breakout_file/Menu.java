@@ -24,6 +24,7 @@ public class Menu extends World
         1,
         1
     };
+    private int sound_delay = 0;
     
     public Menu(int unlock)
     {    
@@ -49,18 +50,23 @@ public class Menu extends World
     }
     
     public void act(){
+        if(sound_delay > 0) sound_delay--;
+        
         if(Greenfoot.isKeyDown("right")){
+            sound("hit_paddle.wav");
             while(Greenfoot.isKeyDown("right"));
             level++;
             if(level>maxLevel) level = 1;
         }
         if(Greenfoot.isKeyDown("left")){
+            sound("hit_paddle.wav");
             while(Greenfoot.isKeyDown("left"));
             level--;
             if(level<1) level = maxLevel;
         }
         
         if(Greenfoot.isKeyDown("space")){
+            sound("select.wav");
             if(LevelLocks[level]==1)Greenfoot.setWorld(new Spielfeld(level));
         }
 
@@ -71,5 +77,12 @@ public class Menu extends World
         showText("" + level, 300, 210);
         if(LevelLocks[level]==0) showText("🔒" + level + "🔒", 300, 210);
         
+    }
+    
+    private void sound(String sound_name){
+        if(sound_delay == 0){
+            Greenfoot.playSound(sound_name);
+            sound_delay = 2;
+        }
     }
 }

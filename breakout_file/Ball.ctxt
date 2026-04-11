@@ -14,4 +14,6 @@ comment5.params=
 comment5.target=void\ reflectOnWall()
 comment6.params=
 comment6.target=void\ removeOnWall()
-numComments=7
+comment7.params=sound_name
+comment7.target=void\ sound(java.lang.String)
+numComments=8

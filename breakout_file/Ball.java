@@ -15,6 +15,7 @@ public class Ball extends Actor
     private double speed = 3;
     private int width = this.getImage().getWidth();
     private int type = 0; //0:normal, 1:star(glidesThroughBlocks)
+    private int sound_delay = 0;
     
     public Ball(int type){
     }
@@ -38,12 +39,21 @@ public class Ball extends Actor
             type = 0; ///////////////////////////////////////////vieleicht noch schöner machen ...
             this.setImage("ball.png");
         }
+        if(sound_delay > 0){
+            sound_delay --;
+        }
         
     }
 
+    
     private void reflectOnPaddle(){
         Actor paddle = getOneIntersectingObject(Paddle.class);
         if(paddle != null){
+            if(sound_delay == 0){
+                sound("hit_paddle.wav");
+                sound_delay = 20;
+            }
+            
             int paddleLeft = paddle.getX() - paddle.getImage().getWidth()/2 + 5;
             int paddleRight = paddle.getX() + paddle.getImage().getWidth()/2 -5;
             if(getX() < paddleLeft && dx>0) {
@@ -85,7 +95,12 @@ public class Ball extends Actor
                 dy = -dy;
             }*/
             
-            if(type == 0) dy = -dy;
+            if(type == 0){
+                dy = -dy;
+                sound("hit_block.wav");
+            }else{
+                sound("starhit_block.wav");
+            }
             
             ((Spielfeld) getWorld()).score += 200;
             //0:nothing; 1:norm; 2:doubleHit; 3:threehit, 4:star, 5:ballspawn, 6:paddlesize//
@@ -122,13 +137,24 @@ public class Ball extends Actor
     }
     
     private void reflectOnWall(){
-        if(getX() >= 600-width/2) dx = -dx;
-        if(getX() <= 8) dx = -dx;
-        if(getY() <= 8) dy = -dy;
+        if(getX() >= 600-width/2){
+            dx = -dx;
+            sound("hit_paddle.wav");
+        }
+        
+        if(getX() <= 8){
+            dx = -dx;
+            sound("hit_paddle.wav");
+        }
+        if(getY() <= 8){
+            dy = -dy;
+            sound("hit_paddle.wav");
+        }
     }    
 
     private void removeOnWall(){
         if(getY() >= 350){
+            sound("loseball.wav");
             ((Spielfeld) getWorld()).balls -= 1;
             ((Spielfeld) getWorld()).score -= 200;
             ((Spielfeld)getWorld()).timer_time = 0; //falls timer läuft --> zurücksetzen
@@ -137,4 +163,13 @@ public class Ball extends Actor
         
         //counter von spielfeld wie viele bälle es noch gibt runterzählen!!!
     }
+    
+    private void sound(String sound_name){
+        if(sound_delay == 0){
+            Greenfoot.playSound(sound_name);
+            sound_delay = 2;
+        }
+    }
 }
+
+    
