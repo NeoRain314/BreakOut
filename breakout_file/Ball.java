@@ -14,6 +14,7 @@ public class Ball extends Actor
     private double dy = -2;//Greenfoot.getRandomNumber(2) - 3;
     private double speed = 3;
     private int width = this.getImage().getWidth();
+    private int type = 0; //0:normal, 1:star(glidesThroughBlocks)
     
     public Ball(int type){
     }
@@ -29,6 +30,15 @@ public class Ball extends Actor
         reflectOnBlock();
         reflectOnWall();
         removeOnWall();
+        
+        if(getWorld() == null) return; //damit act nicht weiter ausgeführt wird wenn ball unten verschwindet
+        
+        
+        if(type==1 && ((Spielfeld)getWorld()).timer_time == 0){
+            type = 0; ///////////////////////////////////////////vieleicht noch schöner machen ...
+            this.setImage("ball.png");
+        }
+        
     }
 
     private void reflectOnPaddle(){
@@ -75,13 +85,17 @@ public class Ball extends Actor
                 dy = -dy;
             }*/
             
-            dy = -dy;
+            if(type == 0) dy = -dy;
             
             ((Spielfeld) getWorld()).score += 200;
             //0:nothing; 1:norm; 2:doubleHit; 3:threehit, 4:star, 5:ballspawn, 6:paddlesize//
             if(block.type == 4){
-                block.type = 1;
-                ((Spielfeld) getWorld()).balls++;
+                /*block.type = 1;
+                ((Spielfeld) getWorld()).balls++;*/
+                type = 1;
+                this.setImage("ball_star.png");
+                ((Spielfeld)getWorld()).timer_time = 10*60;
+                getWorld().removeObject(block);
             }else
             if(block.type == 5){
                 Ball ball = new Ball(0);
@@ -117,6 +131,7 @@ public class Ball extends Actor
         if(getY() >= 350){
             ((Spielfeld) getWorld()).balls -= 1;
             ((Spielfeld) getWorld()).score -= 200;
+            ((Spielfeld)getWorld()).timer_time = 0; //falls timer läuft --> zurücksetzen
             getWorld().removeObject(this);
         }
         

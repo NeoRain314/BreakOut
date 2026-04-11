@@ -15,7 +15,7 @@ public class Spielfeld extends World
      */
     
     //LEVELS: (0:nothing; 1:norm; 2:doubleHit; 3:threehit, 4:star, 5:ballspawn, 6:paddlesize)
-    private int[] test_level = {6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+    private int[] test_level = {6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 4, 4, 4, 4, 6,
                                  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}; 
     private int[] Level_1 = {6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
@@ -74,6 +74,13 @@ public class Spielfeld extends World
             }
         }
         
+        if(timer_time > 0){
+            timer_time--;
+            show_timer = true;
+        }else{
+            show_timer = false;
+        }
+        
         updateText();
         
     }
@@ -122,7 +129,7 @@ public class Spielfeld extends World
             showText("YOU WON!", game_width/2, game_height/2-50);
             showText(":)", game_width/2, game_height/2-30);
             showText("You unlocked the next level!", game_width/2, game_height/2);
-            showText("- press space to continue -", game_width/2, game_height-65);
+            //showText("- press space to continue -", game_width/2, game_height-65);
             game_stat = 2;
             stopGame();
         }
@@ -130,19 +137,22 @@ public class Spielfeld extends World
             showText("YOU LOST!", game_width/2, game_height/2-50);
             showText(":(", game_width/2, game_height/2-30);
             showText("ty again", game_width/2, game_height/2);
-            showText("- press space to continue -", game_width/2, game_height-65);
             game_stat = 1;
             stopGame();
         }
         if(show_timer){
-            showText("Timer:" + score, 70, 380);
+            showText("Timer:" + timer_time/60, game_width/2, 340);
         }else{
-            
+            showText("", game_width/2, 340);
         }
     }
     
     private void stopGame(){
         removeObjects(getObjects(null));
+        
+        showText("- press space to continue -", game_width/2, game_height-65);
+        timer_time = 0;
+        showText("", game_width/2, 340);
         /*showText("", 80, 280);
         showText("", 68, 250);*/
     }
