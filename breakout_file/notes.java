@@ -8,7 +8,9 @@
  * - Balls left anzeige anders
  * 
  * 
- *- BUG: Level unlock, when second level beated it is unlocked again
+ * 
+ * 
+ *- BUG: Level unlock, when second level beated it is unlocked again --> fixed
  * 
  * 
  * Ideas:

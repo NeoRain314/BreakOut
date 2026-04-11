@@ -78,6 +78,7 @@ public class Ball extends Actor
             dy = -dy;
             
             ((Spielfeld) getWorld()).score += 200;
+            //0:nothing; 1:norm; 2:doubleHit; 3:threehit, 4:star, 5:ballspawn, 6:paddlesize//
             if(block.type == 4){
                 block.type = 1;
                 ((Spielfeld) getWorld()).balls++;
@@ -87,7 +88,19 @@ public class Ball extends Actor
                 getWorld().addObject(ball, Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(300));
                 ((Spielfeld) getWorld()).balls++;
                 getWorld().removeObject(block);
-            }
+            }else
+            if(block.type == 6){
+                Paddle paddle = getWorld().getObjects(Paddle.class).get(0);
+                if(paddle.stat == 1){
+                    paddle.stat = 0;
+                    paddle.setImage("paddle_long.png");
+                }else
+                if(paddle.stat == 0){
+                    paddle.stat = 1;
+                    paddle.setImage("paddle_short.png");
+                }
+                getWorld().removeObject(block);
+            }else
             if(block.type > 1){
                 block.type--;
             }else getWorld().removeObject(block);

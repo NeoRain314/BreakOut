@@ -15,10 +15,11 @@ public class Block extends Actor
     }
     
     public void act(){
-        if(type == 1) this.setImage("block_2.png");
+        if(type == 1) this.setImage("block.png");
         if(type == 2) this.setImage("twohit_block.png");
         if(type == 3) this.setImage("threehit_block.png");
         if(type == 4) this.setImage("star_block.png");
         if(type == 5) this.setImage("special_block.png");
+        if(type == 6) this.setImage("special_block_2.png");
     }
 }

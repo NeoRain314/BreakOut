@@ -14,16 +14,16 @@ public class Spielfeld extends World
      * 
      */
     
-    //LEVELS: (0:nothing; 1:norm; 2:doubleHit; 3:threehit, 4:star, 5:ballspawn)
-    private int[] test_level = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                                0, 1, 5, 1, 0, 1, 1, 4, 4, 1, 1, 0, 1, 5, 1, 0,
-                                0, 0, 1, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0, 1, 0, 0,}; 
-    private int[] Level_1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+    //LEVELS: (0:nothing; 1:norm; 2:doubleHit; 3:threehit, 4:star, 5:ballspawn, 6:paddlesize)
+    private int[] test_level = {6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+                                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}; 
+    private int[] Level_1 = {6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}; 
-    private int[] Level_2 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,};
+    private int[] Level_2 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                             0, 1, 5, 1, 0, 1, 1, 4, 4, 1, 1, 0, 1, 5, 1, 0,
+                             0, 0, 1, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0, 1, 0, 0,};
     private int[][] Level_list = {
         test_level,
         Level_1,
@@ -33,6 +33,9 @@ public class Spielfeld extends World
     
     private int[] selectedLevel;
     private int level_num;
+    
+    public boolean show_timer = false;
+    public int timer_time = 0;
     
     public Spielfeld(int level)
     {    
@@ -72,6 +75,7 @@ public class Spielfeld extends World
         }
         
         updateText();
+        
     }
     
     private void fillGame() {
@@ -129,6 +133,11 @@ public class Spielfeld extends World
             showText("- press space to continue -", game_width/2, game_height-65);
             game_stat = 1;
             stopGame();
+        }
+        if(show_timer){
+            showText("Timer:" + score, 70, 380);
+        }else{
+            
         }
     }
     

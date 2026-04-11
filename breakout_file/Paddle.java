@@ -11,6 +11,7 @@ public class Paddle extends Actor
     private float move_speed_r = 1;
     private float move_speed_l = 1;
     int width = this.getImage().getWidth();
+    public int stat = 0; //0=normal, 1=short
     
     public void act() 
     {
