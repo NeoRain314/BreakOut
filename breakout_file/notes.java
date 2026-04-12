@@ -8,8 +8,6 @@
  * 
  * //TODO//--------------------------
  * - better sounds & lautstärke anpassen...
- * - Story fertig
- * - Tutorial besser
  * - Balls left anzeige anders
  * - Level designen
  * 
@@ -20,6 +18,8 @@
  * - Sounds and Music
  * - in Menü taste drücken können damit alle Level unlocked werden
  * - !!CODE FÜR WARTEN NACH KLICKEN IN MENÜ ANDERS MACHEN!!! 
+ * - Story fertig
+ * - Tutorial besser
  * 
  * //BUGs//-------------------------
  * - sometimes ball gets after spawning stuck in the top border

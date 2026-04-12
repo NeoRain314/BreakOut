@@ -12,7 +12,7 @@ public class Menu extends World {
     
     public int level = 0;
     public static int total_score = 0;
-    private int maxLevel = 4;
+    public static int maxLevel = 4;
     //Levels: test_level, Level_1, Level_2
     public static int max_unlocked_level = 1;
 
@@ -39,7 +39,6 @@ public class Menu extends World {
     }
     
     public void act(){
-        if(max_unlocked_level == maxLevel && Story.story.story_stat == 1) Greenfoot.setWorld(Story.story); //if all levels completed show end of story
         
         if(Greenfoot.isKeyDown("right")){
             if(!right_pressed){
