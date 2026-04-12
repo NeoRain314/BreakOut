@@ -10,7 +10,7 @@ public class SoundManager
     private static int sound_delay = 0;
 
     public SoundManager(){
-        
+        // :D
     }
 
     public void act(){
@@ -19,8 +19,8 @@ public class SoundManager
     
     public static void playMusic(String song){
         if(!is_music_playing){
-            if(song == "game_music") game_music.playLoop();
-            if(song == "menu_music") menu_music.playLoop();
+            //if(song == "game_music") game_music.playLoop();
+            //if(song == "menu_music") menu_music.playLoop();
             is_music_playing = true;
         }
     }

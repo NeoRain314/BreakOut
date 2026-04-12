@@ -11,6 +11,7 @@ public class Menu extends World {
     public static Menu menu;
     
     public int level = 0;
+    public static int total_score = 0;
     private int maxLevel = 4;
     //Levels: test_level, Level_1, Level_2
     public static int max_unlocked_level = 1;
@@ -26,7 +27,7 @@ public class Menu extends World {
         // Erstellt eine neue Welt mit 600x400 Zellen und einer Zell-Größe von 1x1 Pixeln.
         super(600, 400, 1);
         menu = this;
-        showText("BREAKOUT", 300, 100);
+        //showText("BREAKOUT", 300, 100);
         showText("Use arrows to switch Level", 300, 300);
         showText("Press space to start!", 300, 330);
         
@@ -87,7 +88,7 @@ public class Menu extends World {
     public void update(){
         showText("" + level, 300, 210);
         if(level > max_unlocked_level) showText("🔒" + level + "🔒", 300, 210);
-        
+        showText("SCORE: " + total_score, 300, 100);
     }
     
     /*old sound method

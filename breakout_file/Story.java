@@ -20,7 +20,6 @@ public class Story extends World{
         story = this;
         showText("Press space to start!", 110, 375);
         Greenfoot.setSpeed(50);
-        SoundManager.playMusic("menu_music"); 
     }
     
     public void act(){
@@ -33,6 +32,7 @@ public class Story extends World{
                     showText("", 110, 375);
                     showText("Press space to continue!", 120, 385);
                     if(stat>1) showText("", 120, 385); //GEHT NOCH NICHT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if(stat<2) SoundManager.playMusic("menu_music"); 
                     this.setBackground("Story_" + stat + ".png");
                 } else {
                     story_stat = 1;

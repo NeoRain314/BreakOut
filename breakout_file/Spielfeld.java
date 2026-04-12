@@ -54,8 +54,7 @@ public class Spielfeld extends World
     
     public boolean show_timer = false;
     public int timer_time = 0;
-    
-    private GreenfootSound music = new GreenfootSound("background_music.mp3");
+
     
     public Spielfeld(int level)
     {    
@@ -66,7 +65,7 @@ public class Spielfeld extends World
         fillGame();
         test();
         game_stat = 0;
-        if(!music.isPlaying()) music.playLoop();
+        SoundManager.playMusic("game_music");
         //prepare();
     }
 
@@ -89,10 +88,14 @@ public class Spielfeld extends World
             //removeObjects(getObjects(Actor.class));
             if(Greenfoot.isKeyDown("space")) key_down = true; //damit erst nach loslassen, sonst in menü gleich wieder space gedrückt --> startet neues game
             if(key_down && !Greenfoot.isKeyDown("space")){
-                music.stop();
+                SoundManager.stopMusic();
                 key_down = false;
                 
-                if(game_stat == 2 && level_num == Menu.max_unlocked_level) Menu.max_unlocked_level++;
+                if(game_stat == 2 && level_num == Menu.max_unlocked_level) {
+                    Menu.max_unlocked_level++;
+                }
+                
+                Menu.total_score += score;
                 Greenfoot.setWorld(Menu.menu);
     
             }
