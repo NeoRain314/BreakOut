@@ -29,6 +29,7 @@ public class Menu extends World {
         //showText("BREAKOUT", 300, 100);
         showText("Use arrows to switch Level", 300, 300);
         showText("Press space to start!", 300, 330);
+        showText("(press 'u' to unlock all levels)", 140, 15);
         
         showText("Level:", 300, 185);
         showText("<               >", 300, 211);
@@ -77,6 +78,7 @@ public class Menu extends World {
         }
         
         if(Greenfoot.isKeyDown("u")){
+            showText("", 140, 15);
             max_unlocked_level = maxLevel;
         }
 
