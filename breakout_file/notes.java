@@ -1,4 +1,9 @@
-/* //NOTES//-------------------------
+/* 
+ * 
+ * 
+ * 
+ * 
+ * //NOTES//-------------------------
  * - Wenn neue Level hinzufügen ändern:
  *     Menu: LevelLocks, Spielfeld: Level_list, neues Level array
  * - Press 'u' in Menu to unlock all Levels

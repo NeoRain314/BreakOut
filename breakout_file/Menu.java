@@ -83,7 +83,19 @@ public class Menu extends World
         if(Greenfoot.isKeyDown("space")){
             if(!space_pressed){
                 sound("select.wav");
-                if(LevelLocks[level]==1)Greenfoot.setWorld(new Spielfeld(level));
+                
+                if(LevelLocks[level]==1){
+                    int u = 0; //max level that is already unlocked
+                    for(int i = 0; i<LevelLocks.length-1; i++){
+                     if(LevelLocks[i+1] == 0 || i==LevelLocks.length-2){
+                         u = i;
+                         break;
+                     }
+                    }
+                    Greenfoot.setWorld(new Spielfeld(level, u));
+                }
+                
+                
             }
             space_pressed = true;
         } else {

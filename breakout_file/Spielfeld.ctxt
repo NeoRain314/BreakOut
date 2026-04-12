@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Spielfeld
 comment0.text=\r\n\ Spielfeld\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @29.01.2026\r\n
-comment1.params=level
-comment1.target=Spielfeld(int)
+comment1.params=level\ unlocked_level
+comment1.target=Spielfeld(int,\ int)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
