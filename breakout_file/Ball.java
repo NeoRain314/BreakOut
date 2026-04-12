@@ -54,7 +54,7 @@ public class Ball extends Actor
     private void reflectOnPaddle(){
         Actor paddle = getOneIntersectingObject(Paddle.class);
         if(paddle != null){
-            sound("hit_paddle.wav");
+            SoundManager.playSound("hit_paddle.wav");
             
             int paddleLeft = paddle.getX() - paddle.getImage().getWidth()/2 + 5;
             int paddleRight = paddle.getX() + paddle.getImage().getWidth()/2 -5;
@@ -99,9 +99,9 @@ public class Ball extends Actor
             
             if(type == 0){
                 dy = -dy;
-                sound("hit_block.wav");
+                SoundManager.playSound("hit_block.wav");
             }else{
-                sound("starhit_block.wav");
+                SoundManager.playSound("starhit_block.wav");
             }
             
             ((Spielfeld) getWorld()).score += 200;
@@ -141,22 +141,23 @@ public class Ball extends Actor
     private void reflectOnWall(){
         if(getX() >= 600-width/2){
             dx = -dx;
-            sound("hit_paddle.wav");
+            SoundManager.playSound("hit_paddle.wav");
         }
         
         if(getX() <= 8){
             dx = -dx;
-            sound("hit_paddle.wav");
+            SoundManager.playSound("hit_paddle.wav");
+            
         }
         if(getY() <= 8){
             dy = -dy;
-            sound("hit_paddle.wav");
+            SoundManager.playSound("hit_paddle.wav");
         }
     }    
 
     private void removeOnWall(){
         if(getY() >= 350){
-            sound("loseball.wav");
+            SoundManager.playSound("loseball.wav");
             ((Spielfeld) getWorld()).balls -= 1;
             ((Spielfeld) getWorld()).score -= 200;
             ((Spielfeld)getWorld()).timer_time = 0; //falls timer läuft --> zurücksetzen
@@ -173,12 +174,13 @@ public class Ball extends Actor
         }
     }*/
     
-    private void sound(String sound_name){
+    /*old sound method:
+     * private void sound(String sound_name){
         if(sound_delay == 0){
             Greenfoot.playSound(sound_name);
             sound_delay = 0;
         }
-    }
+    }*/
 }
 
     

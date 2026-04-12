@@ -15,13 +15,15 @@ public class Story extends World
      */
     
     private boolean key_down = false;
-    private int stat = 6;
+    private int stat = 0;
     
     public Story()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         showText("Press space to start!", 110, 375);
+        Greenfoot.setSpeed(50);
+        SoundManager.playMusic("menu_music"); 
     }
     
     public void act(){

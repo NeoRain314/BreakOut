@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=SoundManager
+comment1.params=
+comment1.target=SoundManager()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=song
+comment3.target=void\ playMusic(java.lang.String)
+comment4.params=
+comment4.target=void\ stopMusic()
+comment5.params=sound_name
+comment5.target=void\ playSound(java.lang.String)
+numComments=6

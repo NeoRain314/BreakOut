@@ -56,7 +56,7 @@ public class Spielfeld extends World
     public int timer_time = 0;
     public int already_unlocked_level = 0;
     
-    //private GreenfootSound music = new GreenfootSound("background_music.wav");
+    private GreenfootSound music = new GreenfootSound("background_music.mp3");
     
     public Spielfeld(int level, int unlocked_level)
     {    
@@ -68,7 +68,7 @@ public class Spielfeld extends World
         test();
         game_stat = 0;
         already_unlocked_level = unlocked_level;
-        //music.playLoop();
+        if(!music.isPlaying()) music.playLoop();
         //prepare();
     }
 
@@ -92,7 +92,7 @@ public class Spielfeld extends World
             //removeObjects(getObjects(Actor.class));
             if(Greenfoot.isKeyDown("space")) key_down = true; //damit erst nach loslassen, sonst in menü gleich wieder space gedrückt --> startet neues game
             if(key_down && !Greenfoot.isKeyDown("space")){
-                //music.stop();
+                music.stop();
                 key_down = false;
                 if(game_stat == 1) Greenfoot.setWorld(new Menu(already_unlocked_level));
                 if(game_stat == 2 && already_unlocked_level < level_num){
@@ -160,7 +160,7 @@ public class Spielfeld extends World
         showText("Level:" + level_num, game_width-50, 380);
         
         if(currBlocks == 0 && game_stat == 0){
-            sound("win.wav");
+            SoundManager.playSound("win.wav");
             showText("YOU WON!", game_width/2, game_height/2-50);
             showText(":)", game_width/2, game_height/2-30);
             showText("You unlocked the next level!", game_width/2, game_height/2);
@@ -169,7 +169,7 @@ public class Spielfeld extends World
             stopGame();
         }
         if(balls == 0 && game_stat == 0){
-            sound("loose.wav");
+            SoundManager.playSound("loose.wav");
             showText("YOU LOST!", game_width/2, game_height/2-50);
             showText(":(", game_width/2, game_height/2-30);
             showText("ty again", game_width/2, game_height/2);
@@ -193,10 +193,11 @@ public class Spielfeld extends World
         showText("", 68, 250);*/
     }
     
-    private void sound(String sound_name){
+    /* old method to play sound:
+     * private void sound(String sound_name){
         if(sound_delay == 0){
             Greenfoot.playSound(sound_name);
             sound_delay = 2;
         }
-    }
+    }*/
 }

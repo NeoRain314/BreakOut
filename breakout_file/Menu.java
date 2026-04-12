@@ -17,6 +17,7 @@ public class Menu extends World
     public int level = 0;
     private int maxLevel;
     //Levels: test_level, Level_1, Level_2
+    private int max_unlocked_level = 1;
     private int[] LevelLocks = { //0=locked, 1=unlocked
         1,
         1,
@@ -53,7 +54,7 @@ public class Menu extends World
             }
         }
         
-        Greenfoot.setSpeed(50);
+        SoundManager.playMusic("menu_music");
     }
     
     public void act(){
@@ -61,7 +62,7 @@ public class Menu extends World
         
         if(Greenfoot.isKeyDown("right")){
             if(!right_pressed){
-                sound("hit_paddle.wav");
+                SoundManager.playSound("hit_paddle.wav");
                 level++;
                 if(level>maxLevel) level = 1;
             }
@@ -71,7 +72,7 @@ public class Menu extends World
         }
         if(Greenfoot.isKeyDown("left")){
             if(!left_pressed){
-                sound("hit_paddle.wav");
+                SoundManager.playSound("hit_paddle.wav");
                 level--;
                 if(level < 1) level = maxLevel;
             }
@@ -82,16 +83,17 @@ public class Menu extends World
         
         if(Greenfoot.isKeyDown("space")){
             if(!space_pressed){
-                sound("select.wav");
+                SoundManager.playSound("select.wav");
                 
                 if(LevelLocks[level]==1){
                     int u = 0; //max level that is already unlocked
                     for(int i = 0; i<LevelLocks.length-1; i++){
-                     if(LevelLocks[i+1] == 0 || i==LevelLocks.length-2){
+                     if(LevelLocks[i+1] == 0 || i==LevelLocks.length-1){
                          u = i;
                          break;
                      }
                     }
+                    SoundManager.stopMusic();
                     Greenfoot.setWorld(new Spielfeld(level, u));
                 }
                 
@@ -117,12 +119,13 @@ public class Menu extends World
         
     }
     
-    private void sound(String sound_name){
+    /*old sound method
+     * private void sound(String sound_name){
         if(sound_delay == 0){
             //Greenfoot.playSound(sound_name);
             GreenfootSound sound = new GreenfootSound(sound_name);
             sound.play();
             sound_delay = 5;
         }
-    }
+    }*/
 }

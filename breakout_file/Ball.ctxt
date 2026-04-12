@@ -15,7 +15,4 @@ comment5.params=
 comment5.target=void\ reflectOnWall()
 comment6.params=
 comment6.target=void\ removeOnWall()
-comment7.params=sound_name
-comment7.target=void\ sound(java.lang.String)
-comment7.text=private\ void\ sound(GreenfootSound\ sound_name){\r\n\ \ \ \ \ \ \ \ if(sound_delay\ \=\=\ 0){\r\n\ \ \ \ \ \ \ \ \ \ \ \ sound_name.play();\r\n\ \ \ \ \ \ \ \ \ \ \ \ sound_delay\ \=\ 5;\r\n\ \ \ \ \ \ \ \ }\r\n}
-numComments=8
+numComments=7

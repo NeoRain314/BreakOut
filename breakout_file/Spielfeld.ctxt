@@ -13,6 +13,4 @@ comment5.params=
 comment5.target=void\ updateText()
 comment6.params=
 comment6.target=void\ stopGame()
-comment7.params=sound_name
-comment7.target=void\ sound(java.lang.String)
-numComments=8
+numComments=7
