@@ -8,8 +8,6 @@
  * 
  * //TODO//--------------------------
  * - better sounds & lautstärke anpassen...
- * - Balls left anzeige anders
- * - Level designen
  * 
  * 
  * done:
@@ -20,6 +18,8 @@
  * - !!CODE FÜR WARTEN NACH KLICKEN IN MENÜ ANDERS MACHEN!!! 
  * - Story fertig
  * - Tutorial besser
+ * - score in Menu
+ * - Level designen
  * 
  * //BUGs//-------------------------
  * - sometimes ball gets after spawning stuck in the top border
@@ -37,7 +37,6 @@
  * ist hacker
  * blöcke sind sicherheitsmechanismen von hauptcomputer
  * ziel: durch firewall hacken um am ende [
- * 
  * 
  * Story idee 2:
  * Virus der ausbrechen möchte
