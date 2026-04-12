@@ -6,25 +6,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class Menu extends World
-{
+public class Menu extends World {
 
-    /**
-     * Konstruktor für Objekte der Klasse Menu
-     * 
-     */
+    public static Menu menu;
     
     public int level = 0;
-    private int maxLevel;
+    private int maxLevel = 4;
     //Levels: test_level, Level_1, Level_2
-    private int max_unlocked_level = 1;
-    private int[] LevelLocks = { //0=locked, 1=unlocked
-        1,
-        1,
-        0,
-        0,
-        0
-    };
+    public static int max_unlocked_level = 1;
+    
     private int sound_delay = 0;
     private boolean right_pressed = false;
     private boolean left_pressed = false;
@@ -32,28 +22,17 @@ public class Menu extends World
     
     int test = 0;
     
-    public Menu(int unlock)
+    public Menu(int achieved_level)
     {    
         // Erstellt eine neue Welt mit 600x400 Zellen und einer Zell-Größe von 1x1 Pixeln.
         super(600, 400, 1);
+        menu = this;
         showText("BREAKOUT", 300, 100);
         showText("Use arrows to switch Level", 300, 300);
         showText("Press space to start!", 300, 330);
         
         showText("Level:", 300, 185);
         showText("<               >", 300, 211);
-        
-        maxLevel = LevelLocks.length - 1;
-        if(unlock>0 && unlock<maxLevel){            //....................................................... vieleicht noch schöner schreiben .....//
-            for(int i = 0; i<=(unlock+1); i++){
-                 LevelLocks[i] = 1;
-            }
-        }else{
-            for(int i = 0; i<=(unlock); i++){
-                 LevelLocks[i] = 1;
-            }
-        }
-        
         SoundManager.playMusic("menu_music");
     }
     
@@ -85,16 +64,9 @@ public class Menu extends World
             if(!space_pressed){
                 SoundManager.playSound("select.wav");
                 
-                if(LevelLocks[level]==1){
-                    int u = 0; //max level that is already unlocked
-                    for(int i = 0; i<LevelLocks.length-1; i++){
-                     if(LevelLocks[i+1] == 0 || i==LevelLocks.length-1){
-                         u = i;
-                         break;
-                     }
-                    }
+                if(level <= max_unlocked_level){
                     SoundManager.stopMusic();
-                    Greenfoot.setWorld(new Spielfeld(level, u));
+                    Greenfoot.setWorld(new Spielfeld(level));
                 }
                 
                 
@@ -105,9 +77,7 @@ public class Menu extends World
         }
         
         if(Greenfoot.isKeyDown("u")){
-            for(int i = 0; i<LevelLocks.length; i++){
-                 LevelLocks[i] = 1;
-            }
+            max_unlocked_level = maxLevel;
         }
 
         update();
@@ -115,7 +85,7 @@ public class Menu extends World
     
     public void update(){
         showText("" + level, 300, 210);
-        if(LevelLocks[level]==0) showText("🔒" + level + "🔒", 300, 210);
+        if(level > max_unlocked_level) showText("🔒" + level + "🔒", 300, 210);
         
     }
     

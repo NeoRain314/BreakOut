@@ -54,11 +54,10 @@ public class Spielfeld extends World
     
     public boolean show_timer = false;
     public int timer_time = 0;
-    public int already_unlocked_level = 0;
     
     private GreenfootSound music = new GreenfootSound("background_music.mp3");
     
-    public Spielfeld(int level, int unlocked_level)
+    public Spielfeld(int level)
     {    
         // Erstellt eine neue Welt mit 600x400 Zellen und einer Zell-Größe von 1x1 Pixeln.
         super(600, 400, 1);
@@ -67,7 +66,6 @@ public class Spielfeld extends World
         fillGame();
         test();
         game_stat = 0;
-        already_unlocked_level = unlocked_level;
         if(!music.isPlaying()) music.playLoop();
         //prepare();
     }
@@ -94,12 +92,9 @@ public class Spielfeld extends World
             if(key_down && !Greenfoot.isKeyDown("space")){
                 music.stop();
                 key_down = false;
-                if(game_stat == 1) Greenfoot.setWorld(new Menu(already_unlocked_level));
-                if(game_stat == 2 && already_unlocked_level < level_num){
-                    Greenfoot.setWorld(new Menu(level_num));
-                }else{
-                    Greenfoot.setWorld(new Menu(already_unlocked_level));
-                }
+                
+                if(game_stat == 2 && level_num == Menu.max_unlocked_level) Menu.max_unlocked_level++;
+                Greenfoot.setWorld(Menu.menu);
     
             }
         }
