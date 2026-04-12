@@ -23,15 +23,15 @@ public class Story extends World{
     }
     
     public void act(){
-        
-       if(Greenfoot.isKeyDown("space")) key_down = true; //damit erst nach loslassen, sonst in menü gleich wieder space gedrückt --> startet neues game
+        if(stat==7) SoundManager.playMusic("menu_music");
+        if(Greenfoot.isKeyDown("space")) key_down = true; //damit erst nach loslassen, sonst in menü gleich wieder space gedrückt --> startet neues game
         if(key_down && !Greenfoot.isKeyDown("space")){
             if(story_stat == 0){
                 if(stat<6){
                     stat++;
                     showText("", 110, 375);
                     showText("Press space to continue!", 120, 385);
-                    if(stat>1) showText("", 120, 385); //GEHT NOCH NICHT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if(stat>1) showText("", 120, 385);
                     if(stat<2) SoundManager.playMusic("menu_music"); 
                     this.setBackground("Story_" + stat + ".png");
                 } else {
@@ -44,7 +44,6 @@ public class Story extends World{
                 }
             }else{
                 if(stat<8){
-                    SoundManager.playMusic("menu_music");
                     stat++;
                     if(stat>7){
                         showText("", 120, 385);
