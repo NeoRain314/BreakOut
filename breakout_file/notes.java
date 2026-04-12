@@ -1,9 +1,4 @@
-/* 
- * 
- * 
- * 
- * 
- * //NOTES//-------------------------
+/* //NOTES//-------------------------
  * - Wenn neue Level hinzufügen ändern:
  *     Menu: LevelLocks, Spielfeld: Level_list, neues Level array
  * - Press 'u' in Menu to unlock all Levels
@@ -12,25 +7,26 @@
  * 
  * 
  * //TODO//--------------------------
- * - !!CODE FÜR WARTEN NACH KLICKEN IN MENÜ ANDERS MACHEN!!! 
  * - better sounds & lautstärke anpassen...
- * - Music
  * - Story fertig
  * - Tutorial besser
  * - Balls left anzeige anders
- * - in Menü taste drücken können damit alle Level unlocked werden
+ * - Level designen
+ * 
  * 
  * done:
  * - neue Graphics
  * - Ball Paddle Reflektion besser
- * - Sounds and 
+ * - Sounds and Music
+ * - in Menü taste drücken können damit alle Level unlocked werden
+ * - !!CODE FÜR WARTEN NACH KLICKEN IN MENÜ ANDERS MACHEN!!! 
  * 
  * //BUGs//-------------------------
- * - level 2 done --> unlock level three; but when level one again done level three again locked
  * - sometimes ball gets after spawning stuck in the top border
  * 
- *fixed BUGs: 
- *- Level unlock, when second level beated it is unlocked again --> fixed
+ * fixed BUGs: 
+ * - Level unlock, when second level beated it is unlocked again --> fixed
+ * - level 2 done --> unlock level three; but when level one again done level three again locked
  *
  * Ideas:
  * - Hight score

@@ -24,10 +24,10 @@ public class Spielfeld extends World
                                 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1,
                                 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1}; 
     
-    private int[] Level_1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+    private int[] Level_1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,}; 
+                             0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,}; 
     private int[] Level_2 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -76,7 +76,6 @@ public class Spielfeld extends World
     public int score = 0;
     public int game_stat = 0; //0-> is running, 1-> lost, 2->won  
     private boolean key_down = false; 
-    private int sound_delay = 0;
     
     public Paddle paddle;
     
@@ -105,9 +104,7 @@ public class Spielfeld extends World
         }else{
             show_timer = false;
         }
-        
-        if(sound_delay > 0) sound_delay--;
-        
+
         updateText();
         
     }

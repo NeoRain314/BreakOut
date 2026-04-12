@@ -14,8 +14,7 @@ public class Menu extends World {
     private int maxLevel = 4;
     //Levels: test_level, Level_1, Level_2
     public static int max_unlocked_level = 1;
-    
-    private int sound_delay = 0;
+
     private boolean right_pressed = false;
     private boolean left_pressed = false;
     private boolean space_pressed = false;
@@ -33,11 +32,13 @@ public class Menu extends World {
         
         showText("Level:", 300, 185);
         showText("<               >", 300, 211);
+        
         SoundManager.playMusic("menu_music");
+        
     }
     
     public void act(){
-        if(sound_delay > 0) sound_delay--;
+        if(max_unlocked_level == maxLevel && Story.story.story_stat == 1) Greenfoot.setWorld(Story.story); //if all levels completed show end of story
         
         if(Greenfoot.isKeyDown("right")){
             if(!right_pressed){
