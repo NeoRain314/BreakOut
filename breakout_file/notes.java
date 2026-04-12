@@ -1,7 +1,9 @@
 /* //NOTES//-------------------------
  * - Wenn neue Level hinzufügen ändern:
  *     Menu: LevelLocks, Spielfeld: Level_list, neues Level array
- * - note to me: act läuft nach löschen des Objekts noch fertig :/
+ * - Press 'u' in Menu to unlock all Levels
+ * - note to myself: act läuft nach löschen des Objekts noch fertig :/
+ * - second note to myself: DONT USE BLUETOOTH HEADPHONES :/
  * 
  * 
  * //TODO//--------------------------
@@ -20,6 +22,7 @@
  * 
  * //BUGs//-------------------------
  * - level 2 done --> unlock level three; but when level one again done level three again locked
+ * - sometimes ball gets after spawning stuck in the top border
  * 
  *fixed BUGs: 
  *- Level unlock, when second level beated it is unlocked again --> fixed

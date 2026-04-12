@@ -20,11 +20,16 @@ public class Menu extends World
     private int[] LevelLocks = { //0=locked, 1=unlocked
         1,
         1,
-        1,
-        1,
-        1
+        0,
+        0,
+        0
     };
     private int sound_delay = 0;
+    private boolean right_pressed = false;
+    private boolean left_pressed = false;
+    private boolean space_pressed = false;
+    
+    int test = 0;
     
     public Menu(int unlock)
     {    
@@ -47,27 +52,48 @@ public class Menu extends World
                  LevelLocks[i] = 1;
             }
         }
+        
+        Greenfoot.setSpeed(50);
     }
     
     public void act(){
         if(sound_delay > 0) sound_delay--;
         
         if(Greenfoot.isKeyDown("right")){
-            sound("hit_paddle.wav");
-            while(Greenfoot.isKeyDown("right"));
-            level++;
-            if(level>maxLevel) level = 1;
+            if(!right_pressed){
+                sound("hit_paddle.wav");
+                level++;
+                if(level>maxLevel) level = 1;
+            }
+            right_pressed = true;
+        } else{
+            right_pressed = false;
         }
         if(Greenfoot.isKeyDown("left")){
-            sound("hit_paddle.wav");
-            while(Greenfoot.isKeyDown("left"));
-            level--;
-            if(level<1) level = maxLevel;
+            if(!left_pressed){
+                sound("hit_paddle.wav");
+                level--;
+                if(level < 1) level = maxLevel;
+            }
+            left_pressed = true;
+        } else{
+            left_pressed = false;
         }
         
         if(Greenfoot.isKeyDown("space")){
-            sound("select.wav");
-            if(LevelLocks[level]==1)Greenfoot.setWorld(new Spielfeld(level));
+            if(!space_pressed){
+                sound("select.wav");
+                if(LevelLocks[level]==1)Greenfoot.setWorld(new Spielfeld(level));
+            }
+            space_pressed = true;
+        } else {
+            space_pressed = false;
+        }
+        
+        if(Greenfoot.isKeyDown("u")){
+            for(int i = 0; i<LevelLocks.length; i++){
+                 LevelLocks[i] = 1;
+            }
         }
 
         update();
@@ -81,8 +107,10 @@ public class Menu extends World
     
     private void sound(String sound_name){
         if(sound_delay == 0){
-            Greenfoot.playSound(sound_name);
-            sound_delay = 2;
+            //Greenfoot.playSound(sound_name);
+            GreenfootSound sound = new GreenfootSound(sound_name);
+            sound.play();
+            sound_delay = 5;
         }
     }
 }

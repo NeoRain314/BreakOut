@@ -17,6 +17,11 @@ public class Ball extends Actor
     private int type = 0; //0:normal, 1:star(glidesThroughBlocks)
     private int sound_delay = 0;
     
+    /*private GreenfootSound hit_paddle = new GreenfootSound("hit_paddle.wav");
+    private GreenfootSound hit_block = new GreenfootSound("hit_block.wav");
+    private GreenfootSound starhit_block = new GreenfootSound("starhit_block.wav");
+    private GreenfootSound loseball = new GreenfootSound("loseball.wav");*/
+    
     public Ball(int type){
     }
     
@@ -49,10 +54,7 @@ public class Ball extends Actor
     private void reflectOnPaddle(){
         Actor paddle = getOneIntersectingObject(Paddle.class);
         if(paddle != null){
-            if(sound_delay == 0){
-                sound("hit_paddle.wav");
-                sound_delay = 20;
-            }
+            sound("hit_paddle.wav");
             
             int paddleLeft = paddle.getX() - paddle.getImage().getWidth()/2 + 5;
             int paddleRight = paddle.getX() + paddle.getImage().getWidth()/2 -5;
@@ -164,10 +166,17 @@ public class Ball extends Actor
         //counter von spielfeld wie viele bälle es noch gibt runterzählen!!!
     }
     
+    /*private void sound(GreenfootSound sound_name){
+        if(sound_delay == 0){
+            sound_name.play();
+            sound_delay = 5;
+        }
+    }*/
+    
     private void sound(String sound_name){
         if(sound_delay == 0){
             Greenfoot.playSound(sound_name);
-            sound_delay = 2;
+            sound_delay = 0;
         }
     }
 }

@@ -55,6 +55,7 @@ public class Spielfeld extends World
     public boolean show_timer = false;
     public int timer_time = 0;
     
+    
     public Spielfeld(int level)
     {    
         // Erstellt eine neue Welt mit 600x400 Zellen und einer Zell-Größe von 1x1 Pixeln.

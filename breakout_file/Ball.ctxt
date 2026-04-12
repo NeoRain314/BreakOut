@@ -3,6 +3,7 @@ comment0.target=Ball
 comment0.text=\r\n\ Ball\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @29.01.2026\r\n
 comment1.params=type
 comment1.target=Ball(int)
+comment1.text=private\ GreenfootSound\ hit_paddle\ \=\ new\ GreenfootSound("hit_paddle.wav");\r\n\ \ \ \ private\ GreenfootSound\ hit_block\ \=\ new\ GreenfootSound("hit_block.wav");\r\n\ \ \ \ private\ GreenfootSound\ starhit_block\ \=\ new\ GreenfootSound("starhit_block.wav");\r\nprivate\ GreenfootSound\ loseball\ \=\ new\ GreenfootSound("loseball.wav");
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ tut,\ was\ auch\ immer\ Ball\ tun\ will.\ Diese\ Methode\ wird\ aufgerufen,\ \r\n\ sobald\ der\ 'Act'\ oder\ 'Run'\ Button\ in\ der\ Umgebung\ angeklickt\ werden.\ \r\n
@@ -16,4 +17,5 @@ comment6.params=
 comment6.target=void\ removeOnWall()
 comment7.params=sound_name
 comment7.target=void\ sound(java.lang.String)
+comment7.text=private\ void\ sound(GreenfootSound\ sound_name){\r\n\ \ \ \ \ \ \ \ if(sound_delay\ \=\=\ 0){\r\n\ \ \ \ \ \ \ \ \ \ \ \ sound_name.play();\r\n\ \ \ \ \ \ \ \ \ \ \ \ sound_delay\ \=\ 5;\r\n\ \ \ \ \ \ \ \ }\r\n}
 numComments=8
