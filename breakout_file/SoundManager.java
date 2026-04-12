@@ -26,8 +26,8 @@ public class SoundManager
     }
     
     public static void stopMusic(){
-        if(menu_music.isPlaying()) menu_music.stop();
-        if(game_music.isPlaying()) game_music.stop();
+        menu_music.stop(); //if(menu_music.isPlaying())
+        game_music.stop(); //if(game_music.isPlaying()) 
         is_music_playing = false;
     }
     

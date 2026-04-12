@@ -44,6 +44,7 @@ public class Story extends World{
                 }
             }else{
                 if(stat<8){
+                    SoundManager.playMusic("menu_music");
                     stat++;
                     if(stat>7){
                         showText("", 120, 385);

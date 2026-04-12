@@ -110,7 +110,7 @@ public class Spielfeld extends World
                 }
                 
                 Menu.total_score += score;
-                if(level_num == Menu.maxLevel && Story.story.story_stat ==1){
+                if(level_num == Menu.maxLevel && Story.story.story_stat ==1 && game_stat == 2){
                     Greenfoot.setWorld(Story.story); //if all levels completed show end of story
                 }else{
                     Greenfoot.setWorld(Menu.menu);

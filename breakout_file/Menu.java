@@ -10,7 +10,7 @@ public class Menu extends World {
 
     public static Menu menu;
     
-    public int level = 0;
+    public int level = 1;
     public static int total_score = 0;
     public static int maxLevel = 4;
     //Levels: test_level, Level_1, Level_2
@@ -20,7 +20,6 @@ public class Menu extends World {
     private boolean left_pressed = false;
     private boolean space_pressed = false;
     
-    int test = 0;
     
     public Menu(int achieved_level)
     {    
